@@ -2,12 +2,23 @@ import groovy.sql.Sql
 import static java.sql.ResultSet.*
 
 void call() {
-    def db = Database(
+    /*def db = Database(
         connectionString: 'jdbc:sqlserver://172.17.0.3:1433;;databaseName=test_stiven;user=sa;password=Der3480*',
         driverName: 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
     )
     def result = db.read([
         sql: 'SELECT * FROM usuario',
         returnRows: 10
-    ])
+    ])*/
+
+    def sql = "SELECT * FROM usuario"
+    def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    def connectionString = "jdbc:sqlserver://172.17.0.3:1433;;databaseName=test_stiven;user=sa;password=Der3480*"
+    
+    def result = sql.eachRow(driver, connectionString, sql) { row ->
+      def column1 = row.columnName1
+      def column2 = row.columnName2
+      
+      echo "Column 1: $column1, Column 2: $column2"
+    }
 }
