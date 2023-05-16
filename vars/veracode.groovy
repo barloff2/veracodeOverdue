@@ -11,14 +11,15 @@ void call() {
         returnRows: 10
     ])*/
 
-    def sql = "SELECT * FROM usuario"
-    def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    def connectionString = "jdbc:sqlserver://172.17.0.3:1433;databaseName=test_stiven;user=sa;password=Der3480*"
+    String query = "SELECT * FROM usuario"
+    String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    String username =  'sa'
+    String password = 'Der3480*'
+    String url = "jdbc:sqlserver://172.17.0.3:1433;databaseName=test_stiven"
     
-    def result = sql.eachRow(driver, connectionString, sql) { row ->
-      def column1 = row.columnName1
-      def column2 = row.columnName2
-      
-      echo "Column 1: $column1, Column 2: $column2"
-    }
+    def sql = Sql.newInstance(url, username, password, driver)
+
+    def result = sql.rows(query)
+
+    sql.close()
 }
