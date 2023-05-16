@@ -11,9 +11,9 @@ void call() {
         returnRows: 10
     ])*/
 
-    def sql = "SELECT * FROM usuario"
+    def query = "SELECT * FROM usuario"
     def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     def connectionString = "jdbc:sqlserver://172.17.0.3:1433;;databaseName=test_stiven;user=sa;password=Der3480*"
-    Class.forName(driver)
-    def result = Sql.execute(driver, connectionString, sql)
+    def sql = Sql.newInstance(url, username, password, driver)
+    def result = sql.rows(query)
 }
