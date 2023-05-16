@@ -1,6 +1,6 @@
 import groovy.sql.Sql
 import static java.sql.ResultSet.*
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
+import com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 void call() {
     def db = [
@@ -9,7 +9,6 @@ void call() {
         password: 'Der3480*',
         driver: 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
     ]
-    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
     def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
     sql.execute 'SELECT * FROM usuario'
 }
