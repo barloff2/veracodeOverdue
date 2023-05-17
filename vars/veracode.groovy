@@ -3,13 +3,15 @@ import static java.sql.ResultSet.*
 import java.sql.DriverManager
 
 void call() {
-    String query = "SELECT * FROM usuario"
+
+    sh(script: "mssql-cli -S 172.17.0.2 -d test_stiven -U sa -P Der3480*")
+    /*String query = "SELECT * FROM usuario"
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
     String password = 'Der3480*'
     String url = "jdbc:sqlserver://172.17.0.2:1433;databaseName=test_stiven;TrustServerCertificate=true"
     //String cert = "TrustServerCertificate=true"
-    Connection con = null
+    Conection con = null
     def classLoader = this.class.classLoader
     while (classLoader.parent) {
         classLoader = classLoader.parent
