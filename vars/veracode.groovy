@@ -18,7 +18,7 @@ void call() {
     }
     
     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-    con = DriverManager.getConnection(url, username, password)
+    con = DriverManager.getConnection(url, username, password, 'TrustServerCertificate=true')
     stmt = con.createStatment()
     
     /*def sql = Sql.newInstance(url, username, password, driver)
