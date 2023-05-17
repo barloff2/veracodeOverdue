@@ -8,6 +8,7 @@ void call() {
     String username =  'sa'
     String password = 'Der3480*'
     String url = "jdbc:sqlserver://172.17.0.2:1433;databaseName=test_stiven"
+    String cert = "TrustServerCertificate=true"
     def classLoader = this.class.classLoader
     while (classLoader.parent) {
         classLoader = classLoader.parent
@@ -18,7 +19,7 @@ void call() {
     }
     
     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-    con = DriverManager.getConnection(url, username, password, 'TrustServerCertificate=true')
+    con = DriverManager.getConnection(url, username, password, cert)
     stmt = con.createStatment()
     
     /*def sql = Sql.newInstance(url, username, password, driver)
