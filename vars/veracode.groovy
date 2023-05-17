@@ -12,10 +12,10 @@ void call() {
     ])*/
 
     String query = "SELECT * FROM usuario"
-    String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
     String password = 'Der3480*'
-    String url = "jdbc:sqlserver://172.17.0.3;databaseName=test_stiven"
+    String url = "jdbc:sqlserver://172.17.0.3:1433;databaseName=test_stiven"
     
     def sql = Sql.newInstance(url, username, password, driver)
 
