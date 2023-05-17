@@ -11,6 +11,9 @@ void call() {
         """)
     }
 
+    usuarios = readFile("./output.txt")
+    println usuarios
+
     /*String query = "SELECT * FROM usuario"
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
