@@ -7,8 +7,8 @@ void call() {
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
     String password = 'Der3480*'
-    String url = "jdbc:sqlserver://172.17.0.2:1433;databaseName=test_stiven"
-    String cert = "TrustServerCertificate=true"
+    String url = "jdbc:sqlserver://172.17.0.2:1433;databaseName=test_stiven;TrustServerCertificate=true"
+    //String cert = "TrustServerCertificate=true"
     def classLoader = this.class.classLoader
     while (classLoader.parent) {
         classLoader = classLoader.parent
