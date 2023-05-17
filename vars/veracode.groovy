@@ -3,11 +3,14 @@ import static java.sql.ResultSet.*
 import java.sql.DriverManager
 
 void call() {
-    sh(script:"""echo \$PATH
-        export PATH=\$PATH:/opt/mssql-tools/bin
-        cd /opt/mssql-tools/bin
-        sqlcmd -S 172.17.0.2 -d test_stiven -U sa -P Der3480* -Q \"SELECT * FROM usuario;\"
-     """)
+    withCredentials([usernamePassword(credentialsId: 'DatabaseVeracode', passwordVariable: 'SQLSERVER_PWD', usernameVariable: 'SQLSERVER_USER')]) {
+        sh(script:"""echo \$PATH
+            export PATH=\$PATH:/opt/mssql-tools/bin
+            cd /opt/mssql-tools/bin
+            sqlcmd -S 172.17.0.2 -d test_stiven -U ${SQLSERVER_USER} -P ${SQLSERVER_PWD} -Q \"SELECT * FROM usuario;\"
+        """)
+    }
+
     /*String query = "SELECT * FROM usuario"
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
