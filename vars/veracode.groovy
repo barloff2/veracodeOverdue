@@ -3,8 +3,9 @@ import static java.sql.ResultSet.*
 import java.sql.DriverManager
 
 void call() {
-
-    sh(script: "sqlcmd -S 172.17.0.2 -d test_stiven -U sa -P Der3480*")
+    sh(script: "echo \$PATH")
+    sh(script: "cd /opt/mssql-tools/bin")
+    sh(script: "sqlcmd -S 172.17.0.2 -d test_stiven -U sa -P Der3480* -Q \"SELECT * FROM usuario;\" ")
     /*String query = "SELECT * FROM usuario"
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
