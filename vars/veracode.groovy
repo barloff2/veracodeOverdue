@@ -4,6 +4,7 @@ import java.sql.DriverManager
 
 void call() {
     sh(script:"""echo \$PATH
+        export PATH=\$PATH:/opt/mssql-tools/bin
         cd /opt/mssql-tools/bin
         sqlcmd -S 172.17.0.2 -d test_stiven -U sa -P Der3480* -Q \"SELECT * FROM usuario;\"
      """)
