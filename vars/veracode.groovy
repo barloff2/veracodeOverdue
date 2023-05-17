@@ -12,7 +12,7 @@ void call() {
     while (classLoader.parent) {
         classLoader = classLoader.parent
         if (classLoader.getClass() == java.net.URLClassLoader) {
-            classLoader.addURL(new File("${JDBC_SQLSERVER}").toURI().toURL)
+            classLoader.addURL(new File("${JDBC_SQLSERVER}").toURI().toURL())
             break;
         }
     }
