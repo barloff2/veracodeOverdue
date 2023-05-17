@@ -4,7 +4,7 @@ import java.sql.DriverManager
 
 void call() {
 
-    sh(script: "mssql-cli -S 172.17.0.2 -d test_stiven -U sa -P Der3480*")
+    sh(script: "sqlcmd -S 172.17.0.2 -d test_stiven -U sa -P Der3480*")
     /*String query = "SELECT * FROM usuario"
     //def driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     String username =  'sa'
