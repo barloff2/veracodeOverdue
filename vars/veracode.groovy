@@ -9,6 +9,7 @@ void call() {
     String password = 'Der3480*'
     String url = "jdbc:sqlserver://172.17.0.2:1433;databaseName=test_stiven;TrustServerCertificate=true"
     //String cert = "TrustServerCertificate=true"
+    Connection con = null
     def classLoader = this.class.classLoader
     while (classLoader.parent) {
         classLoader = classLoader.parent
