@@ -19,7 +19,7 @@ void call() {
     }
     
     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-    con = DriverManager.getConnection(url, username, password, cert)
+    con = DriverManager.getConnection(url, username, password)
     stmt = con.createStatment()
     
     /*def sql = Sql.newInstance(url, username, password, driver)
