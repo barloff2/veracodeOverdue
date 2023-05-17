@@ -6,7 +6,7 @@ void call() {
     withCredentials([usernamePassword(credentialsId: 'DatabaseVeracode', passwordVariable: 'SQLSERVER_PWD', usernameVariable: 'SQLSERVER_USER')]) {
         sh(script:"""
             export PATH=\$PATH:/opt/mssql-tools/bin
-            sqlcmd -S 172.17.0.2 -d test_stiven -U ${SQLSERVER_USER} -P ${SQLSERVER_PWD} -Q "SELECT * FROM usuario FOR JSON AUTO;" -o ./output.txt
+            sqlcmd -S 172.17.0.2 -d test_stiven -U ${SQLSERVER_USER} -P ${SQLSERVER_PWD} -Q "SELECT * FROM usuario FOR JSON;" -o ./output.txt
             cat ./output.txt
         """)
     }
